@@ -34,7 +34,11 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
             "/v3/api-docs/**",
             "/swagger-ui/**",
             "/api/auth/login",
-            "/api/gamers/add"
+            "/api/gamers/add",
+            "/api/articles/**",
+            "/api/comments/**",
+            "/api/gamers/**",
+            "/api/communities/**",
     };
     @Autowired
     private JwtTokenFilter jwtTokenFilter;
