@@ -1,11 +1,13 @@
 package com.vodafone.backend.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.util.List;
+
 
 @Entity
 @Data
@@ -32,6 +34,10 @@ public class Gamer {
     @ManyToOne
     @JoinColumn(name = "community_id")
     private Community community;
+
+    @OneToOne(mappedBy = "gamer")
+    @JsonIgnore
+    private Comment comment;
 
 
 
