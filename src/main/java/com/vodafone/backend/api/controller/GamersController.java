@@ -10,13 +10,13 @@ import java.util.Optional;
 
 @RequestMapping("/api/gamers/")
 @RestController
-public class GamerController {
+public class GamersController {
     private GamerService gamerService;
     @Autowired
-    public GamerController(GamerService gamerService) {
+    public GamersController(GamerService gamerService) {
         this.gamerService = gamerService;
     }
-    @GetMapping("findAll")
+    @GetMapping("findall")
     public List<Gamer> findAll(){
         return gamerService.findAll();
     }
@@ -25,7 +25,7 @@ public class GamerController {
         return gamerService.findGamerById(id);
     }
     @PostMapping("add")
-    public Gamer createGamer(Gamer gamer){
+    public Gamer createGamer(@RequestBody Gamer gamer){
         return gamerService.createGamer(gamer);
     }
     @DeleteMapping("delete")
