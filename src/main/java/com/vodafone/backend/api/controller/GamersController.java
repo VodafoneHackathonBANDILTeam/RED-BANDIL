@@ -3,6 +3,7 @@ package com.vodafone.backend.api.controller;
 import com.vodafone.backend.entity.Gamer;
 import com.vodafone.backend.service.interfaces.GamerService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -16,6 +17,8 @@ public class GamersController {
     public GamersController(GamerService gamerService) {
         this.gamerService = gamerService;
     }
+    @Autowired
+    private BCryptPasswordEncoder passEncoder;
     @GetMapping("findall")
     public List<Gamer> findAll(){
         return gamerService.findAll();
@@ -26,10 +29,11 @@ public class GamersController {
     }
     @PostMapping("add")
     public Gamer createGamer(@RequestBody Gamer gamer){
-        return gamerService.createGamer(gamer);
+        gamer.setPassword(passEncoder.encode(gamer.getPassword()));
+        return  gamerService.createGamer(gamer);
     }
-    @DeleteMapping("delete")
-    public void deleteGamer(int id){
+    @DeleteMapping("delete/{id}")
+    public void deleteGamer(@PathVariable int id){
         gamerService.deleteGamer(id);
     }
 }

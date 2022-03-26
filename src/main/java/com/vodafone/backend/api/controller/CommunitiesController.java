@@ -28,8 +28,8 @@ public class CommunitiesController {
     public Community createCommunity(@RequestBody Community community){
         return communityService.createCommunity(community);
     }
-    @DeleteMapping("delete")
-    public void deleteCommunity(int id){
+    @DeleteMapping("delete/{id}")
+    public void deleteCommunity(@PathVariable int id){
         communityService.deleteCommunity(id);
     }
 }
