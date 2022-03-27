@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Alert, Button, Carousel } from 'react-bootstrap';
+import { Alert, Button, Card, Carousel, Container } from 'react-bootstrap';
 import ArticleService from '../services/articleService';
 
 export default function ArticlePage() {
@@ -19,55 +19,52 @@ export default function ArticlePage() {
   <Carousel.Item>
     <img
       className="d-block w-100"
-      src="holder.js/800x400?text=First slide&bg=373940"
+      src="https://www.bilisimdergisi.org.tr/wp-content/uploads/2017/07/Vodafone_hi_2.jpg"
       alt="First slide"
     />
     <Carousel.Caption>
-      <h3>First slide label</h3>
-      <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+    
     </Carousel.Caption>
   </Carousel.Item>
   <Carousel.Item>
     <img
       className="d-block w-100"
-      src="holder.js/800x400?text=Second slide&bg=282c34"
+      src="https://i4.hurimg.com/i/hurriyet/75/1200x675/5e37e5c37152d810cca5b973.jpg"
       alt="Second slide"
     />
 
     <Carousel.Caption>
-      <h3>Second slide label</h3>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+  
       </Carousel.Caption>
     </Carousel.Item>
     <Carousel.Item>
       <img
         className="d-block w-100"
-      src="holder.js/800x400?text=Third slide&bg=20232a"
+      src="https://www.gursesgazetesi.com/images/haberler/2019/08/vodafone-freezone-avantajlari-nelerdir.jpg"
       alt="Third slide"
     />
 
       <Carousel.Caption>
-        <h3>Third slide label</h3>
-        <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+        
       </Carousel.Caption>
     </Carousel.Item>
   </Carousel>
+      <Container>
+        
+      
       {articles.map((article=>
-        <Alert  variant="success">
-        <Alert.Heading>How's it going?!</Alert.Heading>
-        <p>
-          {article.article}
-        </p>
-        <hr />
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque iusto, sequi ad dolorem aliquam perferendis ipsa sint aliquid temporibus cupiditate molestias nobis eos at incidunt nemo quae quam consequuntur sit!
-        <div className="d-flex justify-content-end">
-          
-          <Button variant="outline-success">
-            tıkla
-          </Button>
-        </div>
-      </Alert>
+        <Card>
+        <Card.Header as="h5">{article.article}</Card.Header>
+        <Card.Body>
+          <Card.Title> {article.article} </Card.Title>
+          <Card.Text>
+            With supporting text below as a natural lead-in to additional content.
+          </Card.Text>
+          <Button variant="primary">Makaleye git</Button>
+        </Card.Body>
+      </Card>
       ))}
+      </Container>
         
 
      
