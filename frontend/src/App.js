@@ -3,15 +3,15 @@ import './App.css';
 import ArticlePage from './pages/ArticlePage';
 import CommentPage from './pages/CommentPage';
 import CommunityPage from './pages/CommunityPage';
-import GamerPage from './pages/GamerPage';
+import Navi from './layouts/Navi';
 
 function App() {
   return (
     <div className="App">
+      <Navi/>
       <ArticlePage/>
       <CommentPage/>
       <CommunityPage/>
-      <GamerPage/>
     </div>
   );
 }
