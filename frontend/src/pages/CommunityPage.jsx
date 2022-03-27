@@ -1,3 +1,4 @@
+import { Button } from 'react-bootstrap';
 import React, { useEffect, useState } from 'react'
 import CommunityService from '../services/communityService';
 
@@ -13,7 +14,7 @@ export default function CommunityPage() {
   return (
     <div>
         {communities.map((community=>
-            <li>{community.name}</li>
+            <Button>Selam</Button>
             ))}
         
 
